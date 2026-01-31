@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nashville Active Dispatch Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        .legend { padding: 10px; background: white; border-radius: 5px; }
+        .legend h4 { margin: 0 0 10px 0; }
+        .legend-item { display: flex; align-items: center; margin: 5px 0; }
+        .legend-color { width: 20px; height: 20px; border-radius: 50%; margin-right: 8px; border: 1px solid #000; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([36.1627, -86.7816], 11);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        
+        L.circleMarker([36.1222333, -86.7752958], {
+            radius: 10,
+            fillColor: 'red',
+            color: '#000',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(map).bindPopup('<b>FIGHT/ASSAULT</b><br>2600 8TH AVE S<br><small>10:58 PM</small>');
+
+        L.circleMarker([36.1426209, -86.7788169], {
+            radius: 10,
+            fillColor: 'yellow',
+            color: '#000',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(map).bindPopup('<b>NON-RESIDENCE-BURGLARY ALARM</b><br>2321 8TH AVE S<br><small>08:16 PM</small>');
+
+        L.circleMarker([36.0380989, -86.7538802], {
+            radius: 10,
+            fillColor: 'gray',
+            color: '#000',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(map).bindPopup('<b>CORPSE/D.O.A</b><br>810 BARRINGTON PLACE DR<br><small>07:50 PM</small>');
+        
+        // Legend
+        var legend = L.control({position: 'bottomright'});
+        legend.onAdd = function(map) {
+            var div = L.DomUtil.create('div', 'legend');
+            div.innerHTML = '<h4>🚔 Active Dispatch</h4>' +
+                '<div class="legend-item"><div class="legend-color" style="background:red"></div>Violent</div>' +
+                '<div class="legend-item"><div class="legend-color" style="background:orange"></div>Robbery</div>' +
+                '<div class="legend-item"><div class="legend-color" style="background:yellow"></div>Property</div>' +
+                '<div class="legend-item"><div class="legend-color" style="background:blue"></div>Traffic</div>' +
+                '<div class="legend-item"><div class="legend-color" style="background:green"></div>Medical</div>' +
+                '<div class="legend-item"><div class="legend-color" style="background:gray"></div>Other</div>' +
+                '<br><small>Updated: 1/25/2026, 2:01:17 AM</small>';
+            return div;
+        };
+        legend.addTo(map);
+    </script>
+</body>
+</html>

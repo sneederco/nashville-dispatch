@@ -1,0 +1,16 @@
+{
+  "name": "nashville-dispatch",
+  "version": "1.0.0",
+  "description": "Polls the Metro Nashville Police Department Active Dispatch API and posts new incidents to a Discord channel via webhook.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2"
+  }
+}

@@ -5,8 +5,8 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-THREAD_ID="1464889997361545271"
-MESSAGE_ID="1464890020723687495"
+CHANNEL_ID="1467570188391157902"
+MESSAGE_ID="1467570243282014209"
 LOG_FILE="$SCRIPT_DIR/auto-update.log"
 
 # Get the formatted dispatch output
@@ -20,7 +20,7 @@ fi
 # Update Discord message via openclaw CLI
 RESULT=$(/opt/homebrew/bin/openclaw message edit \
     --channel discord \
-    --target "$THREAD_ID" \
+    --target "$CHANNEL_ID" \
     --message-id "$MESSAGE_ID" \
     --message "$OUTPUT" 2>&1)
 

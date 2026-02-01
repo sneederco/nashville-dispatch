@@ -5,8 +5,8 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-THREAD_ID="1464889997361545271"
-REPORT_MESSAGE_ID="1466820084227117137"
+CHANNEL_ID="1467570188391157902"
+REPORT_MESSAGE_ID="1467570289855561880"
 LOG_FILE="$SCRIPT_DIR/weekly-update.log"
 
 # Generate the report
@@ -20,7 +20,7 @@ fi
 # Update Discord message via openclaw CLI
 RESULT=$(/opt/homebrew/bin/openclaw message edit \
     --channel discord \
-    --target "$THREAD_ID" \
+    --target "$CHANNEL_ID" \
     --message-id "$REPORT_MESSAGE_ID" \
     --message "$OUTPUT" 2>&1)
 

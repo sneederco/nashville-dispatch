@@ -17,8 +17,8 @@ if [ -z "$OUTPUT" ]; then
     exit 1
 fi
 
-# Update Discord message via clawdbot CLI
-RESULT=$(/opt/homebrew/bin/clawdbot message edit \
+# Update Discord message via openclaw CLI
+RESULT=$(/opt/homebrew/bin/openclaw message edit \
     --channel discord \
     --target "$THREAD_ID" \
     --message-id "$MESSAGE_ID" \
